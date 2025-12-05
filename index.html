@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <title>CV Anisa Marsela</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
+    <style>
+      /* --- Variabel Warna dan Styling Global --- */
+      :root {
+        --color-primary: #58c09a;
+        --color-dark: #3a4750;
+        --color-text-light: #90a4ae;
+        --color-bg-light: #f5f5f5;
+        --color-accent: #f0f0f0; /* Warna latar belakang aksen baru */
+      }
+
+      /* --- Global Reset & Background --- */
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        color: var(--color-dark);
+        line-height: 1.6;
+        /* TETAP: Mencegah scroll di level body (desktop) */
+        overflow: hidden;
+      }
+
+      /* Container Utama CV */
+      .cv-wrapper {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        /* PERBAIKAN DARI SEBELUMNYA: Buat lebar penuh dan hilangkan margin untuk menghilangkan 'ngambang' */
+        max-width: 100%;
+        margin: 0 auto;
+        /* PERBAIKAN DARI SEBELUMNYA: Gunakan tinggi 100vh agar menempel penuh ke tepi atas dan bawah */
+        height: 100vh;
+        background: white;
+        /* PERBAIKAN DARI SEBELUMNYA: Hilangkan radius sudut */
+        border-radius: 0;
+        /* PERBAIKAN DARI SEBELUMNYA: Hilangkan shadow utama di wrapper */
+        box-shadow: none;
+        /* TETAP */
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* Reset style di mobile */
+      @media (max-width: 800px) {
+        /* Kembalikan scroll body di mobile */
+        body {
+          overflow-y: auto;
+        }
+        .cv-wrapper {
+          grid-template-columns: 1fr;
+          margin: 0;
+          border-radius: 0;
+          min-height: auto;
+          height: auto; /* Kembalikan ke auto agar bisa discroll di HP */
+          box-shadow: none;
+        }
+      }
+
+      /* --- Sidebar (Bagian Kiri Gelap) --- */
+      .sidebar {
+        background: var(--color-dark);
+        color: white;
+        /* PERBAIKAN PENTING DI SINI:
+       Mengubah padding menjadi 30px 30px 40px 30px
+       untuk menambah ruang 40px di bagian bawah (bottom padding).
+    */
+        padding: 30px 30px 60px 30px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        background-image: none;
+        background-color: var(--color-dark);
+        position: relative;
+        /* TETAP: Sidebar mengisi tinggi penuh dan tidak di-scroll */
+        overflow-y: hidden;
+        height: 100%;
+      }
+      /* Atur footer agar selalu di bawah di sidebar desktop */
+      .sidebar-footer {
+        padding-bottom: 10px;
+        margin-top: auto; /* Mendorong footer ke bawah */
+        margin-bottom: 0; /* Pastikan tidak ada margin bawah yang menekan konten */
+      }
+      .sidebar-footer p {
+        margin-top: 10px; /* Tambahkan jarak di atas teks copyright */
+        margin-bottom: 0; /* Pastikan tidak ada margin bawah pada paragraf */
+      }
+      /* Hapus overlay karena gambar sudah dihapus */
+      .sidebar::before {
+        content: none;
+      }
+
+      /* GAYA AVATAR SIDEBAR (TETAP BULAT) */
+      .profile-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: white;
+        margin: 0 auto 15px;
+        border: 4px solid var(--color-primary);
+        overflow: hidden;
+        box-shadow: 0 0 0 2px var(--color-dark); /* Tambahkan shadow untuk kontras */
+      }
+      .profile-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .sidebar h2 {
+        font-weight: 600;
+        margin: 0 0 5px;
+        font-size: 24px;
+      }
+      .sidebar p {
+        font-weight: 300;
+        font-size: 14px;
+        color: #ccc;
+        margin-bottom: 25px;
+      }
+
+      .social-links {
+        margin-bottom: 25px; /* Jarak bawah baru */
+      }
+      .social-links h3 {
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        color: var(--color-primary);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding-bottom: 10px;
+        display: block;
+      }
+      .social-links a {
+        color: white;
+        margin: 0 10px;
+        font-size: 18px;
+        opacity: 0.7;
+        transition: opacity 0.2s, color 0.2s;
+      }
+      .social-links a:hover {
+        opacity: 1;
+        color: var(--color-primary);
+      }
+
+      .contact-info {
+        list-style: none;
+        padding: 0;
+        margin-top: 30px;
+        text-align: left;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding-top: 20px;
+      }
+      .contact-info li {
+        margin-bottom: 10px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        color: #eee;
+      }
+      .contact-info i {
+        color: var(--color-primary);
+        font-size: 16px;
+        width: 20px;
+        text-align: center;
+        margin-right: 10px;
+      }
+
+      .btn-download-sidebar {
+        background: var(--color-primary);
+        border: 1px solid var(--color-primary);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.2s, opacity 0.2s;
+        margin-top: 30px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .btn-download-sidebar:hover {
+        background: #4aaa85;
+        opacity: 0.9;
+      }
+
+      /* Atur footer agar selalu di bawah di sidebar desktop */
+      .sidebar-footer {
+        margin-top: auto; /* Mendorong footer ke bawah */
+        padding-top: 20px;
+        /* Perbaikan: Pastikan tidak ada margin bottom yang menghimpit */
+        margin-bottom: 0;
+      }
+
+      /* Navigasi bahasa disembunyikan */
+      .language-switch {
+        display: none;
+      }
+
+      /* --- Main Content (Bagian Kanan Terang) --- */
+      .main-content {
+        padding: 0;
+        background: white;
+        /* TETAP: Konten utama diizinkan untuk di-scroll secara mandiri */
+        overflow-y: auto;
+        position: relative;
+        height: 100%; /* Memastikan main-content mengisi tinggi penuh di grid */
+        /* PERBAIKAN DARI SEBELUMNYA: Tambahkan shadow halus untuk memisahkan dari sidebar */
+        box-shadow: -5px 0 10px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Gaya untuk Halaman Konten (Display Control) */
+      .content-page {
+        /* PERBAIKAN UTAMA: Kurangi padding atas agar konten tidak terdorong terlalu jauh */
+        padding: 20px 40px 40px 40px;
+        box-sizing: border-box;
+        height: auto;
+        display: none;
+        animation: fadeIn 0.5s ease-out;
+      }
+
+      .content-page.active {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .intro-section {
+        display: block; /* Menggunakan block di sini */
+        padding-bottom: 30px;
+        margin-bottom: 0 !important;
+      }
+
+      .intro-text h3 {
+        font-size: 14px;
+        color: var(--color-primary);
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
+      .intro-text h1 {
+        font-size: 38px;
+        font-weight: 700;
+        margin: 0 0 15px;
+        line-height: 1.1;
+      }
+      .intro-text p {
+        font-size: 15px;
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 25px;
+      }
+
+      /* --- Styling untuk Data Pribadi (hero-intro) --- */
+      .hero-intro {
+        margin-top: 30px;
+        padding: 20px;
+        border: 1px solid var(--color-bg-light);
+        border-radius: 10px;
+        background: var(--color-accent); /* Gunakan warna aksen baru */
+      }
+
+      .hero-intro ul {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px 30px; /* Tambah jarak kolom */
+      }
+
+      .hero-intro li {
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--color-dark);
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-intro li span {
+        font-weight: 600;
+        color: var(--color-dark); /* Ubah warna kembali ke dark */
+        display: inline-block;
+        min-width: 120px;
+        margin-right: 15px;
+        position: relative;
+      }
+
+      .hero-intro li span::after {
+        content: ":";
+        position: absolute;
+        right: 0;
+        color: var(--color-dark);
+      }
+
+      /* Styling Sosial Media di About Me */
+      .social-links.main-content-social {
+        border-top: 1px solid #eee;
+        padding-top: 15px;
+        margin-top: 30px;
+        text-align: left;
+      }
+      .social-links.main-content-social h3 {
+        color: var(--color-dark);
+        border-bottom: none;
+        margin: 0 0 15px 0;
+      }
+      .social-links.main-content-social a {
+        color: var(--color-dark);
+        opacity: 0.6;
+      }
+      .social-links.main-content-social a:hover {
+        color: var(--color-primary);
+      }
+
+      /* Action buttons (dihapus karena tidak digunakan di desain ini) */
+      .action-buttons {
+        display: none;
+      }
+
+      .section-title {
+        font-size: 28px; /* Lebih besar */
+        font-weight: 700; /* Lebih tebal */
+        /* PERBAIKAN: Beri margin-top sedikit, jangan 0, karena padding page sudah diatur 20px */
+        margin-top: 20px;
+        margin-bottom: 30px;
+        color: var(--color-dark);
+        border-bottom: 2px solid var(--color-primary); /* Tambahkan garis bawah aksen */
+        padding-bottom: 10px;
+        display: inline-block; /* Agar garis hanya selebar teks */
+      }
+
+      .timeline {
+        border-left: 2px solid var(--color-accent); /* Ganti garis abu-abu muda */
+        padding-left: 20px;
+        position: relative;
+      }
+      .timeline-item {
+        margin-bottom: 30px;
+        position: relative;
+      }
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -31px; /* Sesuaikan posisi agar titik sejajar dengan garis */
+        top: 5px;
+        width: 10px;
+        height: 10px;
+        background: var(--color-primary);
+        border-radius: 50%;
+        border: 4px solid white; /* Border putih agar kontras dengan background */
+        box-shadow: 0 0 0 2px var(--color-accent); /* Tambahkan shadow agar lebih menonjol */
+      }
+      .timeline-item h4 {
+        font-size: 16px;
+        font-weight: 600; /* Lebih tebal */
+        color: var(--color-dark);
+        margin: 0 0 5px;
+      }
+      .timeline-item h5 {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-text-light);
+        margin: 0 0 10px;
+      }
+      .timeline-item p {
+        font-size: 14px;
+        color: #666;
+        margin-top: 5px;
+      }
+
+      /* Navigasi Vertikal Ikon (Desktop) */
+      .fixed-nav {
+        position: fixed;
+        right: 30px; /* Pindah sedikit ke kanan */
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 100;
+        background: white;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+      .nav-link {
+        color: #666;
+        font-size: 20px;
+        transition: color 0.2s, transform 0.2s;
+        display: block;
+        padding: 8px; /* Tambah padding */
+        border-radius: 5px;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--color-primary);
+        background: var(--color-bg-light);
+        transform: scale(1.05);
+      }
+
+      /* --- Portfolio Specific Styling --- */
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+
+      .portfolio-item {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--color-accent);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s, box-shadow 0.3s;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .portfolio-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .portfolio-image {
+        height: 180px;
+        background-color: var(--color-bg-light);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .portfolio-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      .portfolio-info {
+        padding: 20px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .portfolio-info h4 {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0 0 5px;
+        color: var(--color-dark);
+      }
+
+      .portfolio-info p {
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .portfolio-tags {
+        margin-top: auto;
+        padding-top: 10px;
+        border-top: 1px dashed var(--color-accent);
+      }
+
+      .portfolio-tags span {
+        display: inline-block;
+        background: var(--color-primary);
+        color: white;
+        font-size: 11px;
+        padding: 4px 10px;
+        border-radius: 4px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
+
+      .portfolio-link {
+        display: none; /* Link dihilangkan karena tidak ada URL proyek */
+      }
+      /* ================================================= */
+
+      /* --- Navigasi Mobile (TETAP MUNCUL) --- */
+      .mobile-nav-bar {
+        display: none;
+        width: 100%;
+        background: var(--color-dark);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .mobile-nav-bar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .mobile-nav-bar li {
+        flex: 1;
+        text-align: center;
+      }
+
+      .mobile-nav-bar .nav-link {
+        color: white;
+        padding: 12px 0;
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        opacity: 0.7;
+        text-decoration: none;
+        transition: opacity 0.2s;
+      }
+
+      .mobile-nav-bar .nav-link.active {
+        opacity: 1;
+        color: var(--color-primary);
+        border-bottom: 3px solid var(--color-primary);
+      }
+
+      /* --- Responsifitas Media Query (Layar Kecil: max-width: 800px) --- */
+      @media (max-width: 800px) {
+        /* Tampilkan Mobile Navbar */
+        .mobile-nav-bar {
+          display: block;
+        }
+
+        /* Hapus Fixed Nav (Ikon Vertikal) */
+        .fixed-nav {
+          display: none;
+        }
+
+        /* Agar konten utama bisa discroll secara normal di HP */
+        .main-content {
+          overflow-y: visible;
+          height: auto;
+          box-shadow: none; /* Hilangkan shadow di mobile */
+        }
+
+        /* Biarkan halaman-halaman konten terlihat normal, tidak absolut */
+        .content-page {
+          padding: 30px 20px;
+          position: static;
+          height: auto;
+          overflow-y: visible;
+        }
+
+        /* Ubah ukuran font section title di mobile */
+        .section-title {
+          font-size: 24px;
+        }
+
+        /* Sidebar (bagian kiri) - Ringkas untuk tampilan HP */
+        .sidebar {
+          padding: 20px;
+          height: auto;
+          text-align: left;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          border-bottom: 5px solid var(--color-primary); /* Tambahkan garis pemisah */
+        }
+
+        /* Tata letak konten sidebar di HP */
+        .profile-avatar {
+          width: 70px; /* Kecilkan sedikit */
+          height: 70px;
+          margin: 0 15px 0 0;
+          border-width: 3px;
+        }
+
+        .sidebar-header {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          margin-bottom: 15px;
+        }
+
+        .sidebar-text {
+          flex-grow: 1;
+        }
+
+        /* Sembunyikan elemen yang tidak perlu di sidebar saat mobile */
+        .sidebar-footer {
+          display: none;
+        }
+        .sidebar h2 {
+          font-size: 20px;
+          margin: 0;
+        }
+        .sidebar p {
+          font-size: 13px;
+          margin: 0;
+          color: #bbb;
+        }
+
+        /* Tampilkan contact-info dan social-links di baris baru */
+        .sidebar .contact-info,
+        .sidebar .social-links {
+          display: flex; /* Ubah ke flex untuk tata letak horizontal di mobile */
+          justify-content: space-around;
+          align-items: center;
+          width: 100%;
+          text-align: center;
+          margin-top: 10px;
+          padding-top: 10px;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .sidebar .contact-info {
+          border-top: none; /* Hapus border top di contact info agar lebih bersih */
+          padding-top: 0;
+          flex-wrap: wrap; /* Izinkan wrap jika item terlalu banyak */
+        }
+
+        /* Atur item kontak agar horizontal di mobile */
+        .sidebar .contact-info li {
+          margin-bottom: 5px;
+          font-size: 12px;
+          width: auto; /* Biarkan item selebar konten */
+          color: #ccc;
+        }
+        .sidebar .contact-info i {
+          font-size: 14px;
+          margin-right: 5px;
+          width: auto;
+        }
+
+        .sidebar .social-links h3,
+        .sidebar .btn-download-sidebar {
+          display: none; /* Sembunyikan judul dan tombol download di sidebar mobile */
+        }
+
+        /* Penyesuaian hero-intro di mobile */
+        .hero-intro ul {
+          grid-template-columns: 1fr; /* Hanya 1 kolom */
+          gap: 10px;
+        }
+      }
+
+      /* Penyesuaian ikon untuk mobile nav */
+      @media (max-width: 500px) {
+        .mobile-nav-bar .nav-link {
+          font-size: 10px;
+          padding: 8px 0;
+        }
+        .mobile-nav-bar .nav-link i {
+          display: block;
+          font-size: 18px;
+          margin-bottom: 3px;
+        }
+
+        /* Kecilkan margin dan padding di intro section */
+        .intro-text h1 {
+          font-size: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cv-wrapper">
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <div class="profile-avatar">
+            <img
+              src="ijazah.jpg"
+              alt="Avatar Anisa Marsela"
+              onerror="this.onerror=null;this.src='https://via.placeholder.com/100/58c09a/FFFFFF?text=AM';"
+            />
+          </div>
+          <div class="sidebar-text">
+            <h2>Anisa Marsela</h2>
+            <p>Rekayasa Perangkat Lunak</p>
+          </div>
+        </div>
+
+        <div style="flex-grow: 1">
+          <ul class="contact-info">
+            <li><i class="fa-solid fa-phone"></i> +62 812 5399 1158</li>
+            <li>
+              <i class="fa-solid fa-envelope"></i> anisamarsela175@gmail.com
+            </li>
+          </ul>
+
+          <div class="social-links">
+            <h3><b>Connect With Me</b></h3>
+            <a
+              href="https://www.linkedin.com/in/anisa-marsela-8a2333398?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+              title="LinkedIn"
+              target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/chanisa_ms?igsh=czAwa29tYWF1cTY3&utm_source=qr"
+              title="Instagram"
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.facebook.com/share/1NxcPkH7cy/?mibextid=wwXIfr"
+              title="Facebook"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="sidebar-footer">
+          <p
+            style="
+              font-size: 12px;
+              color: rgba(255, 255, 255, 0.5);
+              margin-top: 0;
+            "
+          >
+            &copy; 2025 Anisa Marsela | All rights reserved
+          </p>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <nav class="mobile-nav-bar">
+          <ul>
+            <li>
+              <a
+                href="#"
+                data-target="intro-page"
+                title="About Me"
+                class="nav-link active"
+              >
+                <i class="fa-solid fa-user"></i> About Me
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                data-target="resume-page"
+                title="Experience"
+                class="nav-link"
+              >
+                <i class="fa-solid fa-file-lines"></i> Experience
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                data-target="portfolio-page"
+                title="Portfolio"
+                class="nav-link"
+              >
+                <i class="fa-solid fa-code"></i> Portfolio
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                data-target="education-page"
+                title="Education"
+                class="nav-link"
+              >
+                <i class="fa-solid fa-graduation-cap"></i> Education
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="content-page active" id="intro-page">
+          <section class="intro-section">
+            <div class="intro-text">
+              <h3>Hello, I'm Anisa Marsela</h3>
+              <h1>About Me</h1>
+              <p>
+                Saya seorang siswi dari SMKN BANTARKALONG dengan jurusan
+                Rekayasa Perangkat Lunak yang memiliki keinginan kuat dalam
+                mempelajari hal-hal baru dan berminat dalam pengembangan web.
+                Saya adalah orang yang disiplin, berkomitmen, dan aktif dalam
+                berorganisasi serta mampu bekerja sama dalam tim.
+              </p>
+
+              <div class="hero-intro">
+                <ul>
+                  <li><span>Date of Birth</span>29 Maret 2007</li>
+                  <li><span>Religion</span>Islam</li>
+                  <li><span>Address</span>Tasikmalaya, Jawa Barat</li>
+                  <li><span>Country</span>Indonesia</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="content-page" id="resume-page">
+          <h2 class="section-title">Experience</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <h4>Desember 2025 - April 2026</h4>
+              <h5>PKL | PT INOVINDO DIGITAL MEDIA</h5>
+              <p>Membuat projek aplikasi dengan kerja sama tim.</p>
+            </div>
+            <div class="timeline-item">
+              <h4>Oktober 2025</h4>
+              <h5>UKK | SMKN BANTARKALONG</h5>
+              <p>
+                Membuat aplikasi kasir sederhana berbasis web dengan menggunakan
+                HTML, CSS dan JavaScript, PHP, dan SQL.
+              </p>
+            </div>
+            <div class="timeline-item">
+              <h4>Juli 2025</h4>
+              <h5>Project Sekolah | SMKN BANTARKALONG</h5>
+              <p>
+                Membuat aplikasi sederhana berbasis android (menggunakan
+                Kodular) serta pengelolaan basis data (PHP & SQL).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-page" id="portfolio-page">
+          <h2 class="section-title">Portfolio</h2>
+
+          <div class="portfolio-grid">
+            <div class="portfolio-item">
+              <div class="portfolio-image">
+                <img src="Screenshot (43).png" alt="Aplikasi Kasir Web" />
+              </div>
+              <div class="portfolio-info">
+                <h4>Aplikasi Kasir Sederhana (Web)</h4>
+                <p>
+                  Proyek Uji Kompetensi Keahlian (UKK) yang mencakup simulasi
+                  transaksi penjualan barang.
+                </p>
+                <div class="portfolio-tags">
+                  <span>PHP</span>
+                  <span>SQL</span>
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>Bootstrap</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <div class="portfolio-image">
+                <img src="4.jpg" alt="Android App Kodular" />
+              </div>
+              <div class="portfolio-info">
+                <h4>Pengelolaan Basis Data (Android)</h4>
+                <p>
+                  Proyek sekolah membuat aplikasi Android sederhana untuk
+                  manajemen data.
+                </p>
+                <div class="portfolio-tags">
+                  <span>Kodular</span>
+                  <span>PHP</span>
+                  <span>SQL</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="portfolio-item">
+              <div class="portfolio-image">
+                <img src="Screenshot (45).png" alt="Landing Page Toko" />
+              </div>
+              <div class="portfolio-info">
+                <h4>Desain Aplikasi Toko (Web)</h4>
+                <p>
+                  Membuat desain halaman toko online statis sebagai latihan
+                  pemrograman web dasar.
+                </p>
+                <div class="portfolio-tags">
+                  <span>Bootstrap</span>
+                  <span>HTML</span>
+                  <span>CSS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-page" id="education-page">
+          <h2 class="section-title">Education</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <h4>2023 - 2026</h4>
+              <h5>SMKN BANTARKALONG</h5>
+              <p>Rekayasa Perangkat Lunak</p>
+            </div>
+            <div class="timeline-item">
+              <h4>2020 - 2023</h4>
+              <h5>SMPN SATU ATAP 1 SODONGHILIR</h5>
+            </div>
+            <div class="timeline-item">
+              <h4>2014 - 2020</h4>
+              <h5>SDN KEBUN BUNGA 9 BANJARMASIN</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fixed-nav">
+        <ul style="list-style: none; padding: 0; margin: 0">
+          <li style="margin-bottom: 15px">
+            <a
+              href="#"
+              data-target="intro-page"
+              title="About Me"
+              class="nav-link active"
+              ><i class="fa-solid fa-user"></i
+            ></a>
+          </li>
+          <li style="margin-bottom: 15px">
+            <a
+              href="#"
+              data-target="resume-page"
+              title="Experience"
+              class="nav-link"
+              ><i class="fa-solid fa-file-lines"></i
+            ></a>
+          </li>
+          <li style="margin-bottom: 15px">
+            <a
+              href="#"
+              data-target="portfolio-page"
+              title="Portfolio"
+              class="nav-link"
+              ><i class="fa-solid fa-code"></i
+            ></a>
+          </li>
+          <li style="margin-bottom: 15px">
+            <a
+              href="#"
+              data-target="education-page"
+              title="Education"
+              class="nav-link"
+              ><i class="fa-solid fa-graduation-cap"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      const navLinks = document.querySelectorAll(".nav-link");
+      const contentPages = document.querySelectorAll(".content-page");
+      const downloadBtn = document.getElementById("download-cv-btn");
+
+      // Fungsi untuk mengganti halaman
+      function showPage(pageId, activeLink) {
+        // 1. Sembunyikan semua halaman
+        contentPages.forEach((page) => {
+          page.classList.remove("active");
+          // Gulirkan konten setiap halaman ke atas saat disembunyikan
+          page.scrollTop = 0;
+        });
+
+        // 2. Tampilkan halaman yang diminta
+        const targetPage = document.getElementById(pageId);
+        if (targetPage) {
+          targetPage.classList.add("active");
+        }
+
+        // 3. Update status aktif navigasi (Fixed Nav dan Mobile Nav)
+        navLinks.forEach((link) => {
+          // Hapus kelas 'active' dari semua link
+          link.classList.remove("active");
+        });
+
+        // Temukan dan aktifkan link di fixed-nav yang sesuai (Desktop)
+        const fixedNavTargetLink = document.querySelector(
+          `.fixed-nav .nav-link[data-target="${pageId}"]`
+        );
+        if (fixedNavTargetLink) {
+          fixedNavTargetLink.classList.add("active");
+        }
+
+        // Temukan dan aktifkan link di mobile-nav-bar yang sesuai (Mobile)
+        const mobileNavTargetLink = document.querySelector(
+          `.mobile-nav-bar .nav-link[data-target="${pageId}"]`
+        );
+        if (mobileNavTargetLink) {
+          mobileNavTargetLink.classList.add("active");
+        }
+
+        // 4. Gulirkan konten utama ke atas (Penting untuk main-content yang di-scroll)
+        const mainContent = document.querySelector(".main-content");
+        if (mainContent) {
+          mainContent.scrollTop = 0;
+        }
+      }
+
+      // Tambahkan event listener untuk tautan navigasi
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute("data-target");
+
+          if (targetId) {
+            showPage(targetId);
+          }
+        });
+      });
+
+      // Tambahkan event listener untuk tombol Download CV (diasumsikan ada)
+      if (downloadBtn) {
+        downloadBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          alert(
+            "Fitur Download CV belum tersedia. Ini adalah tautan placeholder."
+          );
+        });
+      }
+
+      // Panggil showPage pertama kali untuk memastikan halaman awal benar
+      document.addEventListener("DOMContentLoaded", () => {
+        showPage("intro-page");
+      });
+    </script>
+  </body>
+</html>
